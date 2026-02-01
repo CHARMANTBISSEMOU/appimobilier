@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes import images
 from routes import paiements
 import config
+import os
 from routes import webhooks
 app = FastAPI(title="API Images & Vidéos")
 
@@ -33,4 +34,4 @@ def root():
 if __name__ == "__main__":
     import uvicorn
     print("🚀 Lancement de l'API...")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
