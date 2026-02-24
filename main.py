@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import images
 from routes import paiements
+from routes import utilisateurs
 import config
 import os
 from routes import webhooks
@@ -18,6 +19,7 @@ app.add_middleware(
 # Inclure les routes
 app.include_router(images.router)
 app.include_router(paiements.router)
+app.include_router(utilisateurs.router)
 app.include_router(webhooks.router)
 
 @app.get("/")
